@@ -2,6 +2,7 @@
 Dictionary<string, int> dicPlataCurso = new Dictionary<string, int>();
 string curso;
 int cantAlumnos, dineroIngresado, dineroAcum, totalDinero = 0, menu;
+bool cursoPosible;
 
 menu = funcionMenu("Elige una opcion");
 while (menu != 3)
@@ -10,7 +11,10 @@ while (menu != 3)
     {
         case 1:
             dineroAcum = 0;
-            curso = ingresarTexto("Ingrese el curso del que desea ingresar dinero").ToUpper();
+            do{
+                curso = ingresarTexto("Ingrese el curso del que desea ingresar dinero").ToUpper();
+                cursoPosible=validarExistenciaCurso(dicPlataCurso,curso);
+            }while(!cursoPosible);
             cantAlumnos = ingresarEntero("¿Cuantos alumnos tiene el curso?");
             for (int i = 0; i < cantAlumnos; i++)
             {
@@ -29,6 +33,8 @@ while (menu != 3)
             break;
     }
 }
+
+
 
 int funcionMenu(string mensaje)
 {
@@ -53,7 +59,13 @@ string ingresarTexto(string v)
     texto = Console.ReadLine();
     return texto;
 }
-
+bool validarExistenciaCurso(Dictionary<string, int> dict, string key)
+{
+    bool keyPosible;
+    keyPosible=dict.ContainsKey(key)==false;
+    if(!keyPosible)Console.WriteLine("Ese curso ya está ingresado");
+    return keyPosible;
+}
 int ingresarEntero(string v)
 {
     int num;

@@ -1,0 +1,15 @@
+Z:\ort2023\prog\hola\bin\Debug\net6.0\hola.exe
+Z:\ort2023\prog\hola\bin\Debug\net6.0\hola.deps.json
+Z:\ort2023\prog\hola\bin\Debug\net6.0\hola.runtimeconfig.json
+Z:\ort2023\prog\hola\bin\Debug\net6.0\hola.dll
+Z:\ort2023\prog\hola\bin\Debug\net6.0\hola.pdb
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.csproj.AssemblyReference.cache
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.GeneratedMSBuildEditorConfig.editorconfig
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.AssemblyInfoInputs.cache
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.AssemblyInfo.cs
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.csproj.CoreCompileInputs.cache
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.dll
+Z:\ort2023\prog\hola\obj\Debug\net6.0\refint\hola.dll
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.pdb
+Z:\ort2023\prog\hola\obj\Debug\net6.0\hola.genruntimeconfig.cache
+Z:\ort2023\prog\hola\obj\Debug\net6.0\ref\hola.dll
