@@ -3,18 +3,18 @@ Dictionary<string, int> dicPlataCurso = new Dictionary<string, int>();
 string curso;
 int cantAlumnos, dineroIngresado, dineroAcum, totalDinero = 0, menu;
 bool cursoPosible;
-
-menu = funcionMenu("Elige una opcion");
-while (menu != 3)
+do
 {
+    menu = funcionMenu("Elige una opcion");
     switch (menu)
     {
         case 1:
             dineroAcum = 0;
-            do{
+            do
+            {
                 curso = ingresarTexto("Ingrese el curso del que desea ingresar dinero").ToUpper();
-                cursoPosible=validarExistenciaCurso(dicPlataCurso,curso);
-            }while(!cursoPosible);
+                cursoPosible = validarExistenciaCurso(dicPlataCurso, curso);
+            } while (!cursoPosible);
             cantAlumnos = ingresarEntero("¿Cuantos alumnos tiene el curso?");
             for (int i = 0; i < cantAlumnos; i++)
             {
@@ -23,18 +23,19 @@ while (menu != 3)
                 totalDinero += dineroIngresado;
             }
             dicPlataCurso.Add(curso, dineroAcum);
-            menu = funcionMenu("Elige una opcion");
             break;
         case 2:
             mostrarEstadisticas(dicPlataCurso, totalDinero);
-            menu = funcionMenu("Elige una opcion");
+            Console.ReadKey();
+            Console.Clear();
             break;
         case 3:
             break;
+        default:
+            Console.WriteLine("Esa opción no existe, intente de nuevo");
+            break;
     }
-}
-
-
+} while (menu != 3);
 
 int funcionMenu(string mensaje)
 {
@@ -62,8 +63,8 @@ string ingresarTexto(string v)
 bool validarExistenciaCurso(Dictionary<string, int> dict, string key)
 {
     bool keyPosible;
-    keyPosible=dict.ContainsKey(key)==false;
-    if(!keyPosible)Console.WriteLine("Ese curso ya está ingresado");
+    keyPosible = dict.ContainsKey(key) == false;
+    if (!keyPosible) Console.WriteLine("Ese curso ya está ingresado");
     return keyPosible;
 }
 int ingresarEntero(string v)
@@ -71,11 +72,6 @@ int ingresarEntero(string v)
     int num;
     Console.WriteLine(v);
     num = int.Parse(Console.ReadLine());
-    while (num < 0)
-    {
-        Console.WriteLine("Has ingresado mal el numero, vuelevlo a ingresar");
-        num = int.Parse(Console.ReadLine());
-    }
     return num;
 }
 void mostrarEstadisticas(Dictionary<string, int> dicPlataCurso, int totalDinero)
@@ -91,7 +87,8 @@ void mostrarEstadisticas(Dictionary<string, int> dicPlataCurso, int totalDinero)
         }
     }
     Console.WriteLine("El curso que mas plata puso fue el " + mayorCurso);
-    Console.WriteLine("El promedio de plata que se regalo entre los cursos fue de " + totalDinero / dicPlataCurso.Count);
+    Console.WriteLine("El promedio de plata que se regalo entre los cursos fue de $" + totalDinero / dicPlataCurso.Count);
     Console.WriteLine("Entre todos los cursos regalaron $" + totalDinero);
     Console.WriteLine("La cantidad de cursos que participaron del regalo fueron " + dicPlataCurso.Count);
+    Console.WriteLine("(PRESIONE ALGUNA TECLA PARA VOLVER AL MENÚ)");
 }
